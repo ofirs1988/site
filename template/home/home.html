@@ -1,0 +1,97 @@
+
+
+    <div class="container-full">
+        <div ng-repeat="(key, value) in videos">
+            <videogular vg-theme="value.theme" id="player1">
+            <vg-media vg-src="value.sources"
+            vg-tracks="value.tracks">
+            </vg-media>
+            <vg-controls>
+            <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+            <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+            <vg-volume>
+            <vg-mute-button></vg-mute-button>
+            <vg-volume-bar></vg-volume-bar>
+            </vg-volume>
+            <vg-fullscreen-button></vg-fullscreen-button>
+            </vg-controls>
+            <vg-overlay-play></vg-overlay-play>
+            <vg-poster vg-url='value.plugins.poster'></vg-poster>
+            </videogular>
+        </div>
+    </div>
+
+
+
+
+    <!--<div ng-if="$root.userLogin">-->
+            <!--&lt;!&ndash; left links &ndash;&gt;-->
+            <!--<div class="col-md-3">-->
+                <!--<div class="profile-nav">-->
+                    <!--<div class="widget">-->
+                        <!--<div class="widget-body">-->
+                            <!--<div class="user-heading round">-->
+                                <!--<a href="#">-->
+                                    <!--<img ng-if="avatar" src="{{avatar}}" alt="">-->
+                                <!--</a>-->
+                                <!--<h1 ng-if="name">{{name}}</h1>-->
+                                <!--<p ng-if="email">{{email}}</p>-->
+                            <!--</div>-->
+
+                            <!--<ul class="nav nav-pills nav-stacked">-->
+                                <!--<li class="active"><a href="#"> <i class="fa fa-user"></i> News feed</a></li>-->
+                                <!--<li>-->
+                                    <!--<a href="#">-->
+                                        <!--<i class="fa fa-envelope"></i> Messages-->
+                                        <!--<span class="label label-info pull-right r-activity">9</span>-->
+                                    <!--</a>-->
+                                <!--</li>-->
+                                <!--<li><a href="#"> <i class="fa fa-calendar"></i> Events</a></li>-->
+                                <!--<li><a href="#"> <i class="fa fa-image"></i> Photos</a></li>-->
+                                <!--<li><a href="#"> <i class="fa fa-share"></i> Browse</a></li>-->
+                                <!--<li><a href="#"> <i class="fa fa-floppy-o"></i> Saved</a></li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>&lt;!&ndash; end left links &ndash;&gt;-->
+    <!--</div>-->
+            <!--&lt;!&ndash; center posts &ndash;&gt;-->
+                    <!--&lt;!&ndash; left posts&ndash;&gt;-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-md-4">-->
+                                <!--<div ng-repeat="(key, value) in videos">-->
+                                <!--<div class="box box-widget" >-->
+                                    <!--<div class="box-header with-border">-->
+                                        <!--<div class="user-block">-->
+                                            <!--<img class="img-circle" ng-if="avatar" src={{avatar}} alt="User Image">-->
+                                            <!--<span class="username"><a href="#">John Breakgrow jr.</a></span>-->
+                                            <!--<span class="description">Shared publicly - 7:30 PM Today</span>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="box-body" style="display: block;">-->
+                                        <!--<videogular vg-theme="value.theme" id="player1">-->
+                                            <!--<vg-media vg-src="value.sources"-->
+                                                      <!--vg-tracks="value.tracks">-->
+                                            <!--</vg-media>-->
+                                            <!--<vg-controls>-->
+                                                <!--<vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>-->
+                                                <!--<vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>-->
+                                                <!--<vg-volume>-->
+                                                    <!--<vg-mute-button></vg-mute-button>-->
+                                                    <!--<vg-volume-bar></vg-volume-bar>-->
+                                                <!--</vg-volume>-->
+                                                <!--<vg-fullscreen-button></vg-fullscreen-button>-->
+                                            <!--</vg-controls>-->
+                                            <!--<vg-overlay-play></vg-overlay-play>-->
+                                            <!--<vg-poster vg-url='value.plugins.poster'></vg-poster>-->
+                                        <!--</videogular>-->
+                                        <!--<button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>-->
+                                        <!--<button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>-->
+                                        <!--<span class="pull-right text-muted">127 likes - 3 comments</span>-->
+                                    <!--</div>-->
+                                <!--</div>&lt;!&ndash;  end posts&ndash;&gt;-->
+                                <!--</div>-->
+                        <!--</div>-->
+                            <!--</div>-->
+            <!--</div>&lt;!&ndash; end  center posts &ndash;&gt;-->

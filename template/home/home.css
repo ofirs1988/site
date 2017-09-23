@@ -1,0 +1,11 @@
+button.InvFb {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 9px;
+    display: block;
+    border: 1px solid #3b4b6e;
+    background: #5897e7;
+    padding: 10px;
+    cursor: pointer;
+}

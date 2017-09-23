@@ -1,0 +1,21 @@
+<div class="content container" ng-if="!$root.userLogin">
+        <h1>Welcome</h1>
+    <div class="content_form">
+        <form class="form" name="form" role="form" ng-submit="vm.login()">
+            <div  class="has-error">{{$errors}}</div>
+                <input type="email" ng-model="vm.user.email" placeholder="Email">
+                <input type="password" ng-model="vm.user.password" placeholder="Password">
+                <!--<button type="submit" id="login-button" ng-disabled="form.$invalid || vm.dataLoading">Login</button>-->
+                <button type="submit" id="login-button" ng-disabled="form.$invalid || vm.dataLoading">Login</button>
+        </form>
+        <div class="registered">new to advertising? <a ui-sref="register">create new account.</a></div>
+        <form class="form" name="form" role="form" ng-submit="vm.FBLogin()">
+            <button id="fb-button" class="loginBtn loginBtn--facebook" >Facebook Login</button>
+        </form>
+        <form class="form" name="form" role="form" ng-submit="vm.FBLogin()">
+            <button id="go-button" class="loginBtn loginBtn--google">Google Login</button>
+        </form>
+    </div>
+</div>
+
+<bg-bubbles-dir></bg-bubbles-dir>
