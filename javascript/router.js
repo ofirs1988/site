@@ -26,6 +26,7 @@ app.config(['$stateProvider', '$urlRouterProvider','$authProvider', '$ocLazyLoad
             templateUrl: 'template/common/layouts/full.html',
             //page title goes here
             controller: 'headerController',
+            controllerAs: 'vm',
             ncyBreadcrumb: {
                 label: 'Root',
                 skip: true

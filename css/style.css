@@ -37,9 +37,7 @@ body :-ms-input-placeholder {
     font-weight: 300;
 }
 .wrapper {
-    background: #50a3a2;
-    background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
-    background: linear-gradient(45deg, #35394a 0%, #1f222e 100%);
+    background-color: #323b44;
     position: absolute;
     top: 0;
     left: 0;
@@ -367,11 +365,6 @@ header{
     width: auto;
 }
 
-.btn {
-    background-color: transparent;
-    color: inherit;
-}
-
 .fa {
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
@@ -659,4 +652,9 @@ textarea:hover, input[type="text"]:hover, input[type="password"]:hover, input[ty
 
 videogular, [videogular] {
     margin-top: 50px;
+}
+
+.btn-primary {
+    background-color: #3bafda;
+    border: 0;
 }

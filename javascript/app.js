@@ -1,5 +1,6 @@
 // Default colors
 var app = angular.module('app', ['ui.router','oc.lazyLoad','ncy-angular-breadcrumb','environment','ngCookies',"ngSanitize","satellizer","angular-jwt","angular-loading-bar",
+    "ngAnimate",
     "com.2fdevs.videogular",
     "com.2fdevs.videogular.plugins.controls",
     "com.2fdevs.videogular.plugins.overlayplay",

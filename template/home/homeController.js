@@ -32,15 +32,15 @@ app.controller('homeController',["videoService","$http","$scope","$rootScope","h
     var last_page;
     var total;
 
-    httpService.httpPost('getVideos').then(function (response){
-        if(response[0].data.success){
-            current_page = response[0].data.data.current_page;
-            last_page = response[0].data.data.last_page;
-            total = response[0].data.data.total;
-            //this.config = videoService.Start(response[0].data.data.data);
-            $scope.videos = videoService.Start(response[0].data.data.data);
-        }
-    })
+    // httpService.httpPost('getVideos').then(function (response){
+    //     if(response[0].data.success){
+    //         current_page = response[0].data.data.current_page;
+    //         last_page = response[0].data.data.last_page;
+    //         total = response[0].data.data.total;
+    //         //this.config = videoService.Start(response[0].data.data.data);
+    //         $scope.videos = videoService.Start(response[0].data.data.data);
+    //     }
+    // })
 
     // var videos = httpService.httpGet('getVideos');
     //
