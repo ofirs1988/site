@@ -10,7 +10,7 @@ var app = angular.module('app', ['ui.router','oc.lazyLoad','ncy-angular-breadcru
     envServiceProvider.config({
         domains: {
             development: ['localhost', 'http://localhost:8000'],
-            production: ['46.101.194.126', 'http://46.101.194.126', 'http://46.101.194.126/vmarketing'],
+            production: ['http://46.101.194.126', 'http://46.101.194.126/vmClient', 'http://46.101.194.126/vmClient/site'],
             test: ['test.acme.com', 'acme.dev.test', 'acme.*.com'],
         },
         vars: {
@@ -25,8 +25,8 @@ var app = angular.module('app', ['ui.router','oc.lazyLoad','ncy-angular-breadcru
                 FacebookAppId: '173819226516915',
             },
             production: {
-                apiUrl: 'http://46.101.194.126/public/api/',
-                staticUrl: 'http://46.101.194.126/public/api/',
+                apiUrl: 'http://46.101.194.126/laravel/public/api/',
+                staticUrl: 'http://46.101.194.126/laravel/public/api/',
                 FacebookAppId: '494328654248437',
             },
             defaults: {
