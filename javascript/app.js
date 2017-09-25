@@ -48,9 +48,9 @@ var app = angular.module('app', ['ui.router','oc.lazyLoad','ncy-angular-breadcru
     console.log(envService.get());
     $rootScope.apiUrl = envService.read('apiUrl');
     AuthenticationService.isAuthorized().then(function (response){
-
         $rootScope.userLogin = response.success;
     });
+
     $rootScope.$on('$locationChangeSuccess',function(event){
         event.preventDefault();
         document.body.scrollTop = document.documentElement.scrollTop = 0;

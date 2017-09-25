@@ -4,7 +4,6 @@
     AuthenticationService.$inject = ['$http','$rootScope','$timeout','$q','httpService','$auth'];
     function AuthenticationService($http, $rootScope, $timeout,$q,httpService,$auth) {
         var service = {};
-
         service.ClearCredentials = ClearCredentials;
         service.Create = Create;
         service.decodejj = decodejj;
@@ -14,8 +13,6 @@
         return service;
 
         //Login
-
-
         function AuthUser(credentials) {
             var deferred = $q.defer();
             return $auth.login(credentials).then(function(res){
@@ -29,22 +26,19 @@
             });
         }
 
-
         function faceBookLogin(data) {
-            var user;
             return $auth.login(data).then(function(res){
-                if(res.data.token){
-                    // If login is successful, redirect to the users state
-                    if(user = getUserByToken(res.data.token))
-                        return true;
-                    else
-                        return false;
-                }else {
-                    return false;
+                if(res.data.token) {
+                    setUserLocalStrorage(res.data.user);
+                    $rootScope.userLogin = true;
+                    return true;
+                }else{
+                    $rootScope.userLogin = false;
+                    return false
                 }
+
             });
         }
-
 
         function isAuthorized() {
             var deferred = $q.defer();
@@ -109,16 +103,6 @@
             return result;
         }
 
-        function getUserByToken() {
-                var result;
-                return httpService.httpPost('user/getUser').then(function (result) {
-                    console.log(result);
-                    setUserLocalStrorage(result[0].data.user);
-                    return result;
-                });
-            return result;
-        }
-
 
         function setUserLocalStrorage(user){
             if(user){
@@ -132,13 +116,8 @@
     }
 
     function decodejj() {
-
        return  localStorage.getItem(Base64.encode('user'));
-
     }
-
-
-
 
     // Base64 encoding service used by AuthenticationService
     var Base64 = {

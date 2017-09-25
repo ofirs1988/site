@@ -4,8 +4,8 @@
 (function () {
     'use strict';
    app.controller('loginController', loginController);
-    loginController.$inject = ['$state','$scope','$auth','AuthenticationService','FlashService','$rootScope'];
-    function loginController($state,$scope,$auth,AuthenticationService,FlashService,$rootScope){
+    loginController.$inject = ['$state','$scope','AuthenticationService','FlashService','$rootScope'];
+    function loginController($state,$scope,AuthenticationService,FlashService,$rootScope){
         var vm = this;
         $scope.parentData = 'Success';
         vm.login = login;

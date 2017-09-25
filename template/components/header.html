@@ -29,8 +29,8 @@
                     </ul>
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right" >
-                <li class="dropdown open"  ng-click="vm.toggleNav($event);">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown" ng-if="!$root.userLogin">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret" ></span></a>
                     <ul id="login-dp" class="dropdown-menu">
                         <li>
@@ -38,18 +38,22 @@
                                 <div class="col-md-12">
                                     Login via
                                     <div class="social-buttons">
-                                        <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-                                        <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                                        <form  name="form" role="form" ng-submit="vm.FBLogin();">
+                                        <button class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</button>
+                                        </form>
+                                        <form  name="form" role="form" ng-submit="vm.FBLogin();">
+                                        <button class="btn btn-tw"><i class="fa fa-google"></i> Twitter</button>
+                                        </form>
                                     </div>
                                     or
-                                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                    <form class="form" role="form" id="login-nav" ng-submit="vm.login();">
                                         <div class="form-group">
-                                            <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required="">
+                                            <label class="sr-only" for="email">Email address</label>
+                                            <input type="email" ng-model="vm.user.email" class="form-control" id="email" placeholder="Email address" required="">
                                         </div>
                                         <div class="form-group">
-                                            <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required="">
+                                            <label class="sr-only" for="password">Password</label>
+                                            <input type="password" ng-model="vm.user.password" class="form-control" id="password" placeholder="Password" required="">
                                             <div class="help-block text-right"><a href="">Forget the password ?</a></div>
                                         </div>
                                         <div class="form-group">
@@ -62,6 +66,20 @@
                                 </div>
                             </div>
                         </li>
+                    </ul>
+                </li>
+                <li><a ng-if="$root.userLogin" id="cash">Your Cash : 0$</a></li>
+                <li class="dropdown" ng-if="$root.userLogin">
+
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>menu</b> <span class="caret" ></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Filters</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Invite Friends</a></li>
+                        <li class="divider"></li>
+                        <li><a ng-click="vm.logout()">Log Out</a></li>
                     </ul>
                 </li>
             </ul>

@@ -1,39 +1,56 @@
 (function () {
     'use strict';
     app.controller('headerController', headerController);
-    headerController.$inject = ['AuthenticationService','$state','$scope','$document'];
-    function headerController(AuthenticationService,$state,$scope,$document) {
+    headerController.$inject = ['AuthenticationService','$state','$scope','$rootScope'];
+    function headerController(AuthenticationService,$state,$scope,$rootScope) {
         var vm = this;
+       //angular.extend(vm, $controller('loginController', {$scope: $scope}));
+        vm.login = login;
+        vm.FBLogin = FBLogin;
 
-        vm.toggleNav = toggleNav;
+        function login() {
+            //vm.dataLoading = true;
+            AuthenticationService.AuthUser(vm.user).then(function (response) {
+                $rootScope.userLogin = response.success;
+                if(!response.success){
+                    $scope.$errors = response.error;
+                }else {
+                    $state.go('home.index');
+                }
+            });
+            //vm.dataLoading = false;
+        };
 
-        function toggleNav () {
-            console.log(111);
-            var menu = document.querySelector('.dropdown') // Using a class instead, see note below.
-            menu.classList.toggle('open');
+        function FBLogin() {
+            FB.login(function(response) {
+                if (response.authResponse) {
+                    FB.api('/me', { locale:
+                        'en_EN',
+                        fields: 'name,email,birthday,hometown,education,gender,website,work'},function(result){
+                        if(result.id){
+                            result.social = 'facebook';
+                            if(result.email){
+                                AuthenticationService.faceBookLogin(result).then(function (res) {
+                                    $rootScope.userLogin = res;
+                                    if (!$scope.$$phase){
+                                    $scope.$apply(function() {
+                                        $state.go('home.index', {});
+                                    });
+                                    }
+                                });
+                            }else{
+                                $scope.$apply(function() {
+                                    $state.go('register',{obj:response});
+                                });
+                            }
+                        }
+                    });
+                } else {
+                    console.log('User cancelled login or did not fully authorize.');
+                }
+            },{scope: 'user_likes,email'});
         }
-        //vm.logout = logout;
-        // if(typeof $rootScope.satellizer === 'string'){
-        //     if($rootScope.satellizer){
-        //         if(!localStorage.getItem('user')){
-        //             UserService.infoUser($rootScope.satellizer).then(function(response){
-        //                 console.log(response);
-        //             });
-        //         }else {
-        //
-        //         }
-        //         // AuthenticationService.decodeUser($rootScope.satellizer, function (response) {
-        //         //     if (typeof response === 'object') {
-        //         //         console.log(response);
-        //         //         // $scope.name = response.name;
-        //         //         // $scope.email = response.email;
-        //         //         // $scope.role = response.role;
-        //         //     } else {
-        //         //         //vm.dataLoading = false;
-        //         //     }
-        //         // });
-        //     }
-        // }
+
         vm.logout = function () {
             AuthenticationService.ClearCredentials(function (response) {
                 if(response){
