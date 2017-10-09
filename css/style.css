@@ -37,7 +37,7 @@ body :-ms-input-placeholder {
     font-weight: 300;
 }
 .wrapper {
-    background-color: #323b44;
+    background-color: #ff9f3e;
     position: absolute;
     top: 0;
     left: 0;
@@ -106,10 +106,10 @@ input[type=file] {
 }
 
 .content_form{
-    padding: 20px 0;
+    padding-bottom: 20px;
     position: relative;
     z-index: 2;
-    opacity: 0.8;
+    /* opacity: 0.8; */
     top: 20px;
     -webkit-transition-timing-function: cubic-bezier(0.68, -0.25, 0.265, 0.85);
     -webkit-transition-property: opacity,box-shadow,top,left,-webkit-transform;
@@ -123,20 +123,20 @@ input[type=file] {
     -webkit-transform: rotateX(0deg);
     transform: rotateX(0deg);
     position: relative;
-    /* width: 240px; */
-    border-top: 2px solid #D8312A;
     height: initial;
-    /* position: absolute; */
     left: 0;
     right: 0;
     margin: auto;
     top: 0;
     bottom: 0;
-    padding: 100px 40px 40px 40px;
-    background: #35394a;
-    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #35394a), color-stop(100%, #1f222e));
-    background: -webkit-linear-gradient(45deg, #35394a 0%, #1f222e 100%);
-    background: linear-gradient(45deg, #35394a 0%, #1f222e 100%);
+    background: #2c3338;
+}
+
+.header_form {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    background: #353c41;
 }
 
 form input {
@@ -144,8 +144,8 @@ form input {
     -moz-appearance: none;
     appearance: none;
     outline: 0;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    background-color: rgba(255, 255, 255, 0.2);
+    border: 0;
+    background-color: #3b4148;
     width: 250px;
     border-radius: 3px;
     padding: 10px 15px;
@@ -153,13 +153,29 @@ form input {
     display: block;
     text-align: center;
     font-size: 18px;
-    color: white;
+    color: #84868b;
     -webkit-transition-duration: 0.25s;
     transition-duration: 0.25s;
     font-weight: 300;
 }
+
 form input:hover {
     background-color: rgba(255, 255, 255, 0.4);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: #fff;
 }
 
 form button {
@@ -167,10 +183,11 @@ form button {
     -moz-appearance: none;
     appearance: none;
     outline: 0;
-    background-color: white;
+    background-color: #ea4c88;
     border: 0;
-    padding: 10px 15px;
-    color: #68a9f3;
+    padding: 5px;
+    margin-bottom: 5px;
+    color: #ffffff;
     border-radius: 3px;
     width: 250px;
     cursor: pointer;
@@ -225,6 +242,8 @@ form button:hover {
     -webkit-animation-delay: 4s;
     animation-delay: 4s;
 }
+
+
 .bg-bubbles li:nth-child(4) {
     left: 40%;
     width: 60px;
