@@ -7,6 +7,12 @@
        //angular.extend(vm, $controller('loginController', {$scope: $scope}));
         vm.login = login;
         vm.FBLogin = FBLogin;
+        vm.showLogin = showLogin;
+
+        function showLogin() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
 
         function login() {
             //vm.dataLoading = true;

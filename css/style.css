@@ -92,6 +92,8 @@ videogular vg-overlay-play, [videogular] vg-overlay-play {
     margin: 0 auto;
     width: 100%;
     text-align: center;
+    height: 500px;
+    background: white;
 }
 
 #login-button:hover{
@@ -106,7 +108,7 @@ input[type=file] {
 }
 
 .content_form{
-    padding-bottom: 20px;
+    padding: 20px;
     position: relative;
     z-index: 2;
     /* opacity: 0.8; */
@@ -147,12 +149,11 @@ form input {
     border: 0;
     background-color: #3b4148;
     width: 250px;
-    border-radius: 3px;
-    padding: 10px 15px;
+    padding: 5px 0px;
     margin: 0 auto 10px auto;
     display: block;
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
     color: #84868b;
     -webkit-transition-duration: 0.25s;
     transition-duration: 0.25s;
@@ -175,7 +176,12 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
+    background-color: black  !important;
     -webkit-text-fill-color: #fff;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #3b4148 inset;
 }
 
 form button {
@@ -191,7 +197,7 @@ form button {
     border-radius: 3px;
     width: 250px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 15px;
     -webkit-transition-duration: 0.25s;
     transition-duration: 0.25s;
 }
@@ -676,4 +682,14 @@ videogular, [videogular] {
 .btn-primary {
     background-color: #3bafda;
     border: 0;
+}
+
+.page{
+    margin-top: 40px;
+}
+
+.img-circle {
+    border-radius: 50%;
+    width: 30px;
+    margin-top: 10px;
 }

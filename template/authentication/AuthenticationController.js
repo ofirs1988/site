@@ -1,6 +1,10 @@
 /**
  * Created by ofir on 02/08/2017.
  */
+
+
+
+
 (function () {
     'use strict';
    app.controller('loginController', loginController);
@@ -62,6 +66,7 @@
         var vm = this;
         vm.register = register;
         vm.FBLoginr = FBLoginr;
+        $('[data-toggle="tooltip"]').tooltip();
         if($stateParams.obj){
             vm.user = $stateParams.obj;
         }
@@ -98,7 +103,6 @@
         vm.dataLoading = true;
 
         function register() {
-
 
             AuthenticationService.Create(vm.user).then(function (response){
                     if (response.success){

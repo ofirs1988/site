@@ -40,6 +40,9 @@
             });
         }
 
+
+        /* Check if user login */
+
         function isAuthorized() {
             var deferred = $q.defer();
             var clear = false;
@@ -54,6 +57,9 @@
                 return deferred.promise;
             });
         }
+
+
+        /* Log out user remove localstorage and header */
 
         function ClearCredentials(callback) {
             if(localStorage.getItem(Base64.encode('user')))
